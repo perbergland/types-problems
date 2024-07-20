@@ -22,13 +22,15 @@
     "noFallthroughCasesInSwitch": false,
 
     /* Module Resolution Options */
-    "baseUrl": ".",
     "paths": {
+      // Workaround for https://github.com/zodern/meteor-types/issues/10
       "meteor/react-meteor-data": [
-        "node_modules/@types/meteor/react-meteor-data.d.ts"
+        "./node_modules/@types/meteor/react-meteor-data.d.ts"
       ],
+      // Workaround for https://github.com/meteor/meteor/issues/13240
+      "meteor/tools": ["./node_modules/@types/meteor/tools.d.ts"],
       "meteor/*": [
-        ".meteor/local/types/packages.d.ts"
+        "./.meteor/local/types/packages.d.ts"
       ]
     },
     "moduleResolution": "node",
